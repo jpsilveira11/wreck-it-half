@@ -84,17 +84,13 @@ function runEngine(){
     addListenerHitBox();
 }
 
-function startOver(){
+function postGameAlert(){
+    alert(`Game Over!\nFinal Score: ${state.values.result}`);
+    alert('Press "OK" to start a new game.')
     state.values.result=0;
     state.values.lifes=3;
     state.values.currentTime=60;
     runEngine();
-}
-
-function postGameAlert(){
-    alert(`Game Over!\nFinal Score: ${state.values.result}`);
-    alert('Press "OK" to start a new game')
-    startOver();
 }
 
 runEngine();
