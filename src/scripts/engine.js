@@ -37,12 +37,15 @@ function soundEffect(audioID){
 
 function countdown(){
     state.values.currentTime--;
-    if(state.values.currentTime<=0){
-        clearInterval(state.actions.countdown);
-        clearInterval(state.actions.timer);
-        postGameAlert();
-    }
     state.view.time.textContent=state.values.currentTime;
+    if(state.values.currentTime<=0){
+        alert(`Time's Over!\n Final Score: ${state.values.result}`);
+        newGame();
+    }
+    if(state.actions.lifes <= 0) {  
+        alert(`You Died!\n Final Score: ${state.values.result}`);
+        newGame();
+    }
 }
 
 function setTarget(){
@@ -100,15 +103,6 @@ function newGame() {
     reset();
     // state.actions.countdown = setInterval(countdown, 1000);
     runEngine();
-}
-
-
-
-function postGameAlert(){
-    alert(`Game Over!\nFinal Score: ${state.values.result}`);
-    alert('Press "OK" to start a new game.')
-    reset();
-    newGame();
 }
 
 runEngine();
