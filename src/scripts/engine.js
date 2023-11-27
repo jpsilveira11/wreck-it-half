@@ -75,14 +75,6 @@ function addListenerHitBox(){
         })
     })
 }
-
-function runEngine(){
-    // alert("running.");
-    if(state.view.score.textContent==='x') state.view.score.textContent=state.values.result;
-    if(state.view.lifes.textContent==='xX') state.view.lifes.textContent=`x${state.actions.lifes}`;
-    // moveTarget();
-    addListenerHitBox();
-}
 function reset() {
     clearInterval(state.actions.countDownTimerId);
     clearInterval(state.actions.timerId);
@@ -97,11 +89,27 @@ function reset() {
     });
 }
 
+function runEngine(){
+    // alert("running.");
+    if(state.view.score.textContent==='x') state.view.score.textContent=state.values.result;
+    if(state.view.lifes.textContent==='xX') state.view.lifes.textContent=`x${state.actions.lifes}`;
+    // moveTarget();
+    addListenerHitBox();
+}
+
+function newGame() {
+    reset();
+    state.actions.countDownTimerId = setInterval(countDown, 1000);
+    runEngine();
+}
+
+
+
 function postGameAlert(){
     alert(`Game Over!\nFinal Score: ${state.values.result}`);
     alert('Press "OK" to start a new game.')
     reset();
-    runEngine();
+    newGame();
 }
 
 runEngine();
