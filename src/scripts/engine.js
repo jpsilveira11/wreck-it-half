@@ -81,7 +81,7 @@ function reset() {
     // state.view.score.textContent=state.values.result;
     // state.view.lifes.textContent=`x${state.actions.lifes}`;
     state.view.squares.forEach((square) => {
-        square.removeEventListener("mousedown", handleClick);
+        square.removeEventListener("mousedown");
     });
 }
 
