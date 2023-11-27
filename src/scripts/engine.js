@@ -34,7 +34,7 @@ function addListenerHitBox(){
         square.addEventListener("mousedown",()=>{
             if(square.id===state.values.hitPosition){
                 state.values.result++
-                state.view.score=state.values.result;
+                state.view.score.textContent=state.values.result;
                 state.values.hitPosition=null;
             }
         })
