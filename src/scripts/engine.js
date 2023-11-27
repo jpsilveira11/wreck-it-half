@@ -12,14 +12,28 @@ const state={
         hitPosition:0,
         result:0,
         currentTime:60,
-        lifes:3,
     },
     actions:{
         timer:setInterval(setTarget,1100),
         countdown:setInterval(countdown,1000),
+        lifes:3,
     }
 
 };
+
+function reset() {
+    clearInterval(state.actions.countDownTimerId);
+    clearInterval(state.actions.timerId);
+    state.values.currentTime = 60;
+    state.actions.lifes = 3;
+    state.values.result = 0;
+    state.view.timeLeft.textContent =state.values.currentTime;
+    state.view.life.textContent = state.actions.lifes;
+    state.view.score.textContent = state.values.result;
+    state.view.squares.forEach((square) => {
+        square.removeEventListener("mousedown", handleClick);
+    });
+}
 
 function gameOver(){
     postGameAlert();
@@ -87,9 +101,7 @@ function runEngine(){
 function postGameAlert(){
     alert(`Game Over!\nFinal Score: ${state.values.result}`);
     alert('Press "OK" to start a new game.')
-    state.values.result=0;
-    state.values.lifes=3;
-    state.values.currentTime=60;
+    reset();
     runEngine();
 }
 
