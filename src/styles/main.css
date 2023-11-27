@@ -3,6 +3,11 @@ main{
     flex-direction: column;
     height: 100vh;
 }
+#heart{
+    width:10px;
+    height: 10px;
+    object-fit: cover;
+}
 .menu{
     display:flex;
     justify-content:space-evenly;
