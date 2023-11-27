@@ -95,6 +95,7 @@ function runEngine(){
 }
 
 function newGame() {
+    alert('Press "OK" to restart!');
     reset();
     // state.actions.countdown = setInterval(countdown, 1000);
     runEngine();
