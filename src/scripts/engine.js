@@ -33,8 +33,8 @@ function lostALife(){
     else gameOver();
 } */
 
-function soundEffect(audio){
-    let audio = new Audio(`./src/audios/${audio}.m4a`);
+function soundEffect(audioID){
+    let audio = new Audio(`./src/audios/${audioID}.m4a`);
     audio.volume=0.2;
     audio.play();
 }
@@ -69,7 +69,7 @@ function addListenerHitBox(){
                 state.values.result++;
                 state.view.score.textContent=state.values.result;
                 state.values.hitPosition=null;
-                // soundEffect(hit);
+                soundEffect(hit);
             }
         })
     })
