@@ -81,8 +81,8 @@ function reset() {
     state.actions.lifes = 3;
     state.values.result = 0;
     state.view.time.textContent =state.values.currentTime;
-    // state.view.score.textContent=state.values.result;
-    // state.view.lifes.textContent=`x${state.actions.lifes}`;
+    state.view.score.textContent=state.values.result;
+    state.view.lifes.textContent=`x${state.actions.lifes}`;
     state.view.squares.forEach((square) => {
         square.removeEventListener("mousedown", onClick);
     });
