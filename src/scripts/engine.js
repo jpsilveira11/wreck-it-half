@@ -60,7 +60,10 @@ function onClick(){
         state.values.hitPosition=null;
         soundEffect('hit');
     }
-    else state.actions.lifes--;
+    else {
+        state.actions.lifes--;
+        state.view.lifes.textContent=`x${state.actions.lifes}`;
+    }
 }
 
 function addListenerHitBox(){
