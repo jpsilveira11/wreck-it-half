@@ -59,7 +59,7 @@ function setTarget(){
 // }
 
 function onClick(){
-    if(square.id===state.values.hitPosition){
+    if(this.id===state.values.hitPosition){
         state.values.result++;
         state.view.score.textContent=state.values.result;
         state.values.hitPosition=null;
