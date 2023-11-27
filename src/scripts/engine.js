@@ -9,7 +9,9 @@ const state={
     },
     values:{
         timer:null,
-        gameSpeed:1000,
+        gameSpeed:1500,
+        hitPosition:0,
+        result:0,
     },
 
 };
@@ -21,6 +23,7 @@ function setTarget(){
     let randomNumber=Math.floor(Math.random()*9);
     let randomSquare=state.view.squares[randomNumber];
     randomSquare.classList.add("target");
+    state.values.hitPosition=randomSquare.id;
 }
 function moveTarget(){
     state.values.timer=setInterval(setTarget,state.values.gameSpeed);
@@ -28,13 +31,20 @@ function moveTarget(){
 
 function addListenerHitBox(){
     state.view.squares.forEach((square)=>{
-        //if(square.id===)
+        square.addEventListener("mousedown",()=>{
+            if(square.id===state.values.hitPosition){
+                state.values.result++;
+                state.view.score=state.values.result;
+                state.values.hitPosition=null;
+            }
+        })
     })
 }
 
 function runEngine(){
     // alert("running.");
     moveTarget();
+    addListenerHitBox();
 }
 
 runEngine();
