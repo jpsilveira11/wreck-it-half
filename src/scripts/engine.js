@@ -58,7 +58,7 @@ function setTarget(){
 //     state.values.timer=setInterval(setTarget,state.values.gameSpeed);
 // }
 
-function onClick{
+function onClick(){
     if(square.id===state.values.hitPosition){
         state.values.result++;
         state.view.score.textContent=state.values.result;
