@@ -40,11 +40,11 @@ function gameOver(){
 }
 
 function lostALife(){
-    if(state.values.lifes>0) {
-        state.values.lifes--;
-        state.view.lifes.textContent=`x${state.values.lifes}`;    
+    if(state.actions.lifes>0) {
+        state.actions.lifes--;
+        state.view.lifes.textContent=`x${state.actions.lifes}`;    
     }
-    else if(state.values.lifes===0) gameOver();
+    else gameOver();
 }
 
 function soundEffect(audioID){
@@ -93,7 +93,7 @@ function addListenerHitBox(){
 function runEngine(){
     // alert("running.");
     if(state.view.score.textContent==='x') state.view.score.textContent=state.values.result;
-    if(state.view.lifes.textContent==='xX') state.view.lifes.textContent=`x${state.values.lifes}`;
+    if(state.view.lifes.textContent==='xX') state.view.lifes.textContent=`x${state.action.lifes}`;
     // moveTarget();
     addListenerHitBox();
 }
