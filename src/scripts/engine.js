@@ -58,17 +58,20 @@ function setTarget(){
 //     state.values.timer=setInterval(setTarget,state.values.gameSpeed);
 // }
 
+function onClick{
+    if(square.id===state.values.hitPosition){
+        state.values.result++;
+        state.view.score.textContent=state.values.result;
+        state.values.hitPosition=null;
+        soundEffect('hit');
+    }
+    else lostALife();
+}
+
 function addListenerHitBox(){
     state.view.squares.forEach((square)=>{
-        square.addEventListener("mousedown",()=>{
-            if(square.id===state.values.hitPosition){
-                state.values.result++;
-                state.view.score.textContent=state.values.result;
-                state.values.hitPosition=null;
-                soundEffect('hit');
-            }
-            else lostALife();
-        })
+        square.removeEventListener("mousedown", onClick);
+    square.addEventListener("mousedown", onClick);
     })
 }
 function reset() {
@@ -81,7 +84,7 @@ function reset() {
     // state.view.score.textContent=state.values.result;
     // state.view.lifes.textContent=`x${state.actions.lifes}`;
     state.view.squares.forEach((square) => {
-        square.removeEventListener("mousedown");
+        square.removeEventListener("mousedown", onClick);
     });
 }
 
