@@ -21,7 +21,7 @@ const state={
 
 };
 
-function gameOver(){
+/*function gameOver(){
     alert("Game Over!");
 }
 
@@ -31,7 +31,7 @@ function lostALife(){
         state.view.lifes.textContent=`x${state.values.lifes}`;    
     }
     else gameOver();
-}
+} */
 
 function soundEffect(audio){
     let audio = new Audio(`./src/audios/${audio}.m4a`);
