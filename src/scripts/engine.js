@@ -9,7 +9,7 @@ const state={
     },
     values:{
         timer:null,
-        gameSpeed:1500,
+        gameSpeed:1200,
         hitPosition:0,
         result:0,
     },
@@ -33,7 +33,7 @@ function addListenerHitBox(){
     state.view.squares.forEach((square)=>{
         square.addEventListener("mousedown",()=>{
             if(square.id===state.values.hitPosition){
-                state.values.result++;
+                state.values.result++
                 state.view.score=state.values.result;
                 state.values.hitPosition=null;
             }
