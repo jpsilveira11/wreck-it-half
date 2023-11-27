@@ -21,14 +21,6 @@ const state={
 
 };
 
-function lostALife(){
-    if(state.actions.lifes>0) {
-        state.actions.lifes--;
-        state.view.lifes.textContent=`x${state.actions.lifes}`;    
-    }
-    else postGameAlert();
-}
-
 function soundEffect(audioID){
     let audio = new Audio(`./src/audios/${audioID}.m4a`);
     audio.volume=0.2;
@@ -68,7 +60,7 @@ function onClick(){
         state.values.hitPosition=null;
         soundEffect('hit');
     }
-    else lostALife();
+    else state.actions.lifes--;
 }
 
 function addListenerHitBox(){
