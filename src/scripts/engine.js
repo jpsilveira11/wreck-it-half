@@ -79,7 +79,7 @@ function addListenerHitBox(){
 function runEngine(){
     // alert("running.");
     if(state.view.score.textContent==='x') state.view.score.textContent=state.values.result;
-    if(state.view.lifes.textContent==='xX') state.view.lifes.textContent=`x${steate.values.lifes}`;
+    if(state.view.lifes.textContent==='xX') state.view.lifes.textContent=`x${state.values.lifes}`;
     // moveTarget();
     addListenerHitBox();
 }
