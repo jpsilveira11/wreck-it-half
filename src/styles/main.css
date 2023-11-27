@@ -5,7 +5,7 @@ main{
     background-image: url("../images/bricks.png");
 
 }
-h2{
+main h2{
     margin:1px;
 }
 #heart{
