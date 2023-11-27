@@ -21,20 +21,6 @@ const state={
 
 };
 
-function reset() {
-    clearInterval(state.actions.countDownTimerId);
-    clearInterval(state.actions.timerId);
-    state.values.currentTime = 60;
-    state.actions.lifes = 3;
-    state.values.result = 0;
-    state.view.timeLeft.textContent =state.values.currentTime;
-    state.view.life.textContent = state.actions.lifes;
-    state.view.score.textContent = state.values.result;
-    state.view.squares.forEach((square) => {
-        square.removeEventListener("mousedown", handleClick);
-    });
-}
-
 function gameOver(){
     postGameAlert();
 }
@@ -96,6 +82,19 @@ function runEngine(){
     if(state.view.lifes.textContent==='xX') state.view.lifes.textContent=`x${state.actions.lifes}`;
     // moveTarget();
     addListenerHitBox();
+}
+function reset() {
+    clearInterval(state.actions.countDownTimerId);
+    clearInterval(state.actions.timerId);
+    state.values.currentTime = 60;
+    state.actions.lifes = 3;
+    state.values.result = 0;
+    state.view.timeLeft.textContent =state.values.currentTime;
+    state.view.life.textContent = state.actions.lifes;
+    state.view.score.textContent = state.values.result;
+    state.view.squares.forEach((square) => {
+        square.removeEventListener("mousedown", handleClick);
+    });
 }
 
 function postGameAlert(){
