@@ -21,7 +21,7 @@ const state={
 
 };
 
-/*function gameOver(){
+function gameOver(){
     alert("Game Over!");
 }
 
@@ -31,7 +31,7 @@ function lostALife(){
         state.view.lifes.textContent=`x${state.values.lifes}`;    
     }
     else gameOver();
-} */
+}
 
 function soundEffect(audioID){
     let audio = new Audio(`./src/audios/${audioID}.m4a`);
@@ -71,14 +71,15 @@ function addListenerHitBox(){
                 state.values.hitPosition=null;
                 soundEffect('hit');
             }
+            else lostALife();
         })
     })
 }
 
 function runEngine(){
     // alert("running.");
-    if(state.view.score.textContent==='x') state.view.score.textContent='0';
-    if(state.view.lifes.textContent==='xX') state.view.lifes.textContent='x3';
+    if(state.view.score.textContent==='x') state.view.score.textContent=state.values.result;
+    if(state.view.lifes.textContent==='xX') state.view.lifes.textContent=`x${steate.values.lifes}`;
     // moveTarget();
     addListenerHitBox();
 }
