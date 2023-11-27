@@ -8,13 +8,27 @@ const state={
         lifes:document.querySelector("#lifes"),
     },
     values:{
-        timer:null,
-        gameSpeed:1200,
+        // gameSpeed:1100,
         hitPosition:0,
         result:0,
+        currentTime:60,
     },
+    actions:{
+        timer:setInterval(setTarget,1100),
+        countdown:setInterval(countdown,1000),
+    }
 
 };
+
+function countdown(){
+    state.values.currentTime--;
+    if(state.values.currentTime<=0){
+        clearInterval(state.actions.countdown);
+        clearInterval(state.actions.timer);
+        alert(`Game Over!\nFinal Score: ${state.values.result}`);
+    }
+    state.view.time.textContent=state.values.currentTime;
+}
 
 function setTarget(){
     state.view.squares.forEach((square)=>{
@@ -25,15 +39,15 @@ function setTarget(){
     randomSquare.classList.add("target");
     state.values.hitPosition=randomSquare.id;
 }
-function moveTarget(){
-    state.values.timer=setInterval(setTarget,state.values.gameSpeed);
-}
+// function moveTarget(){
+//     state.values.timer=setInterval(setTarget,state.values.gameSpeed);
+// }
 
 function addListenerHitBox(){
     state.view.squares.forEach((square)=>{
         square.addEventListener("mousedown",()=>{
             if(square.id===state.values.hitPosition){
-                state.values.result++
+                state.values.result++;
                 state.view.score.textContent=state.values.result;
                 state.values.hitPosition=null;
             }
@@ -43,7 +57,8 @@ function addListenerHitBox(){
 
 function runEngine(){
     // alert("running.");
-    moveTarget();
+    if(state.view.score.textContent==='x') state.view.score.textContent='0';
+    // moveTarget();
     addListenerHitBox();
 }
 
