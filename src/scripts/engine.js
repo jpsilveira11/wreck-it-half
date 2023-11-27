@@ -98,7 +98,7 @@ function runEngine(){
 
 function newGame() {
     reset();
-    state.actions.countDownTimerId = setInterval(countDown, 1000);
+    state.actions.countdown = setInterval(countdown, 1000);
     runEngine();
 }
 
