@@ -22,7 +22,7 @@ const state={
 };
 
 function gameOver(){
-    alert("Game Over!");
+    postGameAlert();
 }
 
 function lostALife(){
@@ -30,7 +30,7 @@ function lostALife(){
         state.values.lifes--;
         state.view.lifes.textContent=`x${state.values.lifes}`;    
     }
-    else gameOver();
+    else if(state.values.lifes===0) gameOver();
 }
 
 function soundEffect(audioID){
@@ -44,7 +44,7 @@ function countdown(){
     if(state.values.currentTime<=0){
         clearInterval(state.actions.countdown);
         clearInterval(state.actions.timer);
-        alert(`Game Over!\nFinal Score: ${state.values.result}`);
+        postGameAlert();
     }
     state.view.time.textContent=state.values.currentTime;
 }
@@ -82,6 +82,12 @@ function runEngine(){
     if(state.view.lifes.textContent==='xX') state.view.lifes.textContent=`x${state.values.lifes}`;
     // moveTarget();
     addListenerHitBox();
+}
+
+function postGameAlert(){
+    alert(`Game Over!\nFinal Score: ${state.values.result}`);
+    alert('Press "OK" to start a new game')
+    runEngine();
 }
 
 runEngine();
