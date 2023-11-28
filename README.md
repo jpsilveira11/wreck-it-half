@@ -38,4 +38,4 @@ Este jogo foi desenvolvido como parte de um projeto educacional da Digital Innov
 
 ---
 
-Não se esqueça de visitar o <a href="(https://github.com/digitalinnovationone/jsgame-detona-ralph)">repositório original da DIO</a> e deixar uma ⭐️ caso goste.
+Não se esqueça de visitar o <a href="https://github.com/digitalinnovationone/jsgame-detona-ralph">repositório original da DIO</a> e deixar uma ⭐️ caso goste.
